@@ -14,3 +14,10 @@ class HelloController(BaseController):
         #return render('/hello.mako')
         # or, return a string
         return 'Hello World from the index() action'
+
+    def environment(self):
+        result = '<HTML><BODY><h1>Environment variables</h1>'
+        for key, value in request.environ.items():
+            result += '%s: %r <br />' %(key, value)
+        result += '</BODY></HTML>'
+        return result
